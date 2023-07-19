@@ -1,0 +1,73 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Loan Calculator";
+}
+
+<form class="form" id="form">
+    <h2>Calculate Loan Installments</h2>
+    <div class="row">
+        <div class="form-group col-md-4">
+            <label>Amount Borrowed</label>
+            <input type="number" class="form-control" placeholder="Enter amount..." id="amount" required />
+        </div>
+        <div class="form-group col-md-4">
+            <label>Start Date</label>
+            <input type="date" class="form-control" placeholder="Enter start date..." id="date" required />
+        </div>
+        <div class="form-group col-md-4">
+            <label>Loan Period (Years)</label>
+            <input type="number" id="period" placeholder="Enter loan period..." required class="form-control" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label>Payment Frequency</label>
+            <select class="form-select" id="payment">
+                <option value="12">Monthly</option>
+                <option value="4">Quarterly</option>
+                <option value="6">Semi-Annually</option>
+                <option value="1">Annually</option>
+            </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Interest Type</label>
+            <select class="form-select" id="interest">
+                <option value="reducing_balance">Reducing Balance</option>
+                <option value="flat_rate">Flat Rate</option>
+            </select>
+        </div>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary btn-sm mt-2" />
+</form>
+<hr />
+<div>
+    <button id="btnGenPdf" class="btn-primary btn-sm">Export To PDF</button>
+    @*<button id="btnSendEmail" class="btn-success btn-sm">Share By Email</button>*@
+</div>
+
+<div id="content" class="mt-3">
+
+    <div id="info" style="width: 60%; margin: auto; padding: 8px; text-align: center"></div>
+
+    <table class="table table-hover table-striped mt-3" id="table">
+        <thead class="bg-secondary text-white text-center">
+            <tr>
+                <th>Payment Date</th>
+                <th>Principal</th>
+                <th>Interest</th>
+                <th>EMI</th>
+                <th>Percentage Paid</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+
+    
+</div>
+
+
+
+
